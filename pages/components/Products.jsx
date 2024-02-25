@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useContext } from "react";
 import { CartContext } from "../../lib/CartContext";
 import toast from "react-hot-toast";
+import Image from "next/image"; // Importing Image from Next.js
 
 // Utility function to format price with a comma for thousands
 const formatPrice = (price) => {
@@ -25,16 +26,22 @@ export default function Products({ products }) {
                 <div className="group block overflow-hidden border border-accent rounded-xl border-opacity-10">
                   <div className="p-1">
                     <div className="relative h-[300px] sm:h-[300px]">
-                      <img
+                      <Image
                         src={product.images[0]}
                         alt=""
                         className="absolute inset-0 h-full w-full object-contain opacity-100 group-hover:opacity-0"
+                        layout="responsive" // Set layout to responsive
+                        width={500} // Set a placeholder width (can be any number)
+                        height={500} // Set a placeholder height (can be any number)
                       />
 
-                      <img
+                      <Image
                         src={product.images[1]}
                         alt=""
                         className="absolute inset-0 h-full w-full object-contain opacity-0 group-hover:opacity-100"
+                        layout="responsive" // Set layout to responsive
+                        width={500} // Set a placeholder width (can be any number)
+                        height={500} // Set a placeholder height (can be any number)
                       />
                     </div>
 
@@ -63,13 +70,13 @@ export default function Products({ products }) {
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
                               viewBox="0 0 24 24"
-                              stroke-width="1.5"
+                              strokeWidth="1.5" // corrected to strokeWidth
                               stroke="currentColor"
                               className="w-5 h-5"
                             >
                               <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round" // corrected to strokeLinecap
+                                strokeLinejoin="round" // corrected to strokeLinejoin
                                 d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
                               />
                             </svg>
